@@ -5,6 +5,8 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
+import ActionButton from 'react-native-action-button';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const styles = StyleSheet.create({
   container: {
@@ -33,6 +35,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '600',
   },
+  actionButton: {
+    fontSize: 20,
+    height: 22,
+    color: 'white',
+  },
 });
 
 class Order extends Component {
@@ -43,12 +50,26 @@ class Order extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableHighlight
-          onPressed={this.addOrder.bind(this)}
-          style={styles.button}
-        >
-          <Text style={styles.buttonText}>Place an order</Text>
-        </TouchableHighlight>
+        <ActionButton buttonColor="rgba(231,76,60,1)">
+          <ActionButton.Item
+            buttonColor="#9b59b6"
+            onPress={this.addOrder.bind(this)}
+            title="New item"
+          >
+            <Icon name="md-create"
+              style={styles.actionButton}
+            />
+          </ActionButton.Item>
+          <ActionButton.Item
+            buttonColor="#1abc9c"
+            onPress={this.addOrder.bind(this)}
+            title="Order items"
+          >
+            <Icon name="md-done-all"
+              style={styles.actionButton}
+            />
+          </ActionButton.Item>
+        </ActionButton>
       </View>
     );
   }
