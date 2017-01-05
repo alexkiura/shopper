@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  TouchableHighlight,
   View,
 } from 'react-native';
 import ActionButton from 'react-native-action-button';
@@ -50,6 +49,7 @@ class Order extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text style={styles.welcome}>No orders placed yet</Text>
         <ActionButton buttonColor="rgba(231,76,60,1)">
           <ActionButton.Item
             buttonColor="#9b59b6"
@@ -63,7 +63,7 @@ class Order extends Component {
           <ActionButton.Item
             buttonColor="#1abc9c"
             onPress={this.addOrder.bind(this)}
-            title="Order items"
+            title="Place orderrder"
           >
             <Icon name="md-done-all"
               style={styles.actionButton}
