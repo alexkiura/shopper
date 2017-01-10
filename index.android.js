@@ -2,24 +2,22 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
-  Text,
   View,
 } from 'react-native';
-import Order from './Order';
+import OrderList from './OrderList';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
   },
-
 });
 
 export default class shopper extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Order />
+        <OrderList ordes={[]} />
       </View>
     );
   }

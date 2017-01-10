@@ -9,6 +9,7 @@
     },
     "rules": {
         "no-console": 0,
+        "no-use-before-define": 0,
         "no-unused-vars": [1, {"vars": "local", "args": "none"}],
         "react/forbid-prop-types": 1,
         "react/jsx-boolean-value": 1,
