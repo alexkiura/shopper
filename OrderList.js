@@ -13,18 +13,42 @@ import Icon from 'react-native-vector-icons/Ionicons';
 class OrderList extends Component {
   constructor(props) {
     super(props);
+    const dataSource = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2,
+    });
     this.state = {
       orders: [],
+      ordersDataSource: dataSource.cloneWithRows(props.orders),
     };
   }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      ordersDataSource: this.ordersDataSource.cloneWithRows(nextProps.orders),
+    });
+  }
+
   addOrder() {
     console.log('Order added');
+  }
+
+  renderRow(order) {
+    return (
+      <Text>
+        {order.description}
+      </Text>
+    );
   }
 
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>No orders placed yet</Text>
+        <ListView
+          dataSource={this.state.ordersDataSource}
+          enableEmptySections
+          renderRow={(order) => <Text>{order.description}</Text>}
+        />
         <ActionButton buttonColor="rgba(231,76,60,1)">
           <ActionButton.Item
             buttonColor="#9b59b6"
@@ -83,5 +107,9 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 });
+
+OrderList.propTypes = {
+  orders: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+};
 
 export default OrderList;
