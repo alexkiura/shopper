@@ -24,7 +24,7 @@ class OrderList extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      ordersDataSource: this.ordersDataSource.cloneWithRows(nextProps.orders),
+      ordersDataSource: this.state.ordersDataSource.cloneWithRows(nextProps.orders),
     });
   }
 
@@ -43,12 +43,16 @@ class OrderList extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>No orders placed yet</Text>
-        <ListView
-          dataSource={this.state.ordersDataSource}
-          enableEmptySections
-          renderRow={(order) => <Text>{order.description}</Text>}
-        />
+        <Text style={styles.title}>My orders</Text>
+        {this.state.ordersDataSource.getRowCount() ?
+          <ListView
+            dataSource={this.state.ordersDataSource}
+            enableEmptySections
+            renderRow={(order) => <Text>{order.description}</Text>}
+          />
+         : <Text style={styles.welcome}>It's lonely here, create an order</Text>
+        }
+
         <ActionButton buttonColor="rgba(231,76,60,1)">
           <ActionButton.Item
             buttonColor="#9b59b6"
@@ -77,11 +81,18 @@ class OrderList extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
+    flex: 0.25,
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  title: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,

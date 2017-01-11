@@ -17,7 +17,7 @@ export default class shopper extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <OrderList ordes={[]} />
+        <OrderList orders={[{ description: 'Match stick' }]} />
       </View>
     );
   }
