@@ -2,18 +2,39 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
+  TextInput,
   TouchableHighlight,
   View,
 } from 'react-native';
 
 
 export default class OrderForm extends Component {
+  
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      item: '',
+    }
+  }
+
+  onOrderTextChanged(text) {
+    this.setState({
+      item: text
+    })
+  }
+
+  submitItem() {
+    this.props.onAdd(this.state.item);
+  }
+
   render() {
     return (
       <View>
-        <Text>Helo </Text>
+        <TextInput
+          onChangeText={this.onOrderTextChanged.bind(this)}
+        />
         <TouchableHighlight
-          onPress={this.props.onAdd}
+          onPress={this.submitItem.bind(this)}
           style={styles.button}
         >
           <Text style={styles.buttonText}>Add item</Text>
@@ -39,6 +60,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '600',
   },
+  orderInput: {
+    height: 40,
+    borderColor: 'gray',
+  }
 })
 
 OrderForm.propTypes = {

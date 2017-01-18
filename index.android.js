@@ -24,6 +24,12 @@ export default class Shopper extends Component {
   }
 
   onSubmitItem(item) {
+    this.state.items.push({
+      description: item
+    })
+    this.setState({
+      items: this.state.items
+    });
     this.nav.pop()
   }
 
@@ -67,7 +73,6 @@ export default class Shopper extends Component {
   }
 
   addOrder() {
-    console.log('Order added');
     this.nav.push({
       name: 'orderForm',
     });
