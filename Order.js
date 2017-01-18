@@ -10,8 +10,21 @@ export default class OrderRow extends Component {
   render() {
     return (
       <View>
-        <Text>Order text</Text>
+        <Text style={styles.orderText}>{this.props.order.description}</Text>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  orderText: {
+    fontSize: 20,
+    padding: 10,
+  },
+});
+
+OrderRow.propTypes = {
+  order: React.PropTypes.shape({
+    description: React.PropTypes.string.isRequired,
+  }),
+};
