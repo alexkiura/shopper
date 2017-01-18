@@ -1,11 +1,11 @@
 {
-    "extends": "airbnb/base",
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
     "plugins": [
         "react"
     ],
     "env": {
         "node": true,
-        "jasmine": true,
+        "jasmine": true
     },
     "rules": {
         "no-console": 0,
@@ -20,8 +20,6 @@
         "react/jsx-max-props-per-line": 1,
         "react/jsx-no-duplicate-props": 1,
         "react/jsx-no-undef": 1,
-        "react/jsx-quotes": 1,
-        "react/jsx-sort-prop-types": 1,
         "react/jsx-sort-props": 1,
         "react/jsx-uses-react": 1,
         "react/jsx-uses-vars": 1,
@@ -39,9 +37,13 @@
         "react/self-closing-comp": 1,
         "react/sort-comp": 1,
         "react/wrap-multilines": 1,
-        "id-length": 0,
+        "id-length": 0
     },
-    "ecmaFeatures": {
-      "jsx": true
-    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    }
 }
