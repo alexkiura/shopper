@@ -19,9 +19,9 @@ export default class shopper extends Component {
       <View style={styles.container}>
         <OrderList orders={
           [
-          { description: 'Match stick' },
-          { description: 'Cabbages' },
-          { description: 'Fruits' }]
+          { description: 'Spinach' },
+          { description: 'Strawberries' },
+          { description: 'Rice' }]
           }
         />
       </View>

@@ -41,7 +41,7 @@ class OrderList extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>My orders</Text>
+        <Text style={styles.title}>My items</Text>
         {this.state.ordersDataSource.getRowCount() ?
           <ListView
             dataSource={this.state.ordersDataSource}
@@ -55,7 +55,7 @@ class OrderList extends Component {
           <ActionButton.Item
             buttonColor="#9b59b6"
             onPress={this.addOrder.bind(this)}
-            title="New order"
+            title="Add item"
           >
             <Icon name="md-create"
               style={styles.actionButton}
@@ -64,7 +64,7 @@ class OrderList extends Component {
           <ActionButton.Item
             buttonColor="#1abc9c"
             onPress={this.addOrder.bind(this)}
-            title="Place order"
+            title="Order items"
           >
             <Icon name="md-done-all"
               style={styles.actionButton}
@@ -80,8 +80,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-start',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
