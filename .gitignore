@@ -40,3 +40,9 @@ buck-out/
 \.buckd/
 android/app/libs
 *.keystore
+
+# Vs code
+.vscode/
+jsconfig.json
+typings.json
+typings/
