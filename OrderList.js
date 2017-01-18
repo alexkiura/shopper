@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {
   ListView,
-  Navigator,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/Ionicons';
+import OrderRow from './Order.js';
 
 
 class OrderList extends Component {
@@ -34,9 +34,7 @@ class OrderList extends Component {
 
   renderRow(order) {
     return (
-      <Text>
-        {order.description}
-      </Text>
+      <OrderRow order={order} />
     );
   }
 
@@ -48,7 +46,7 @@ class OrderList extends Component {
           <ListView
             dataSource={this.state.ordersDataSource}
             enableEmptySections
-            renderRow={(order) => <Text>{order.description}</Text>}
+            renderRow={this.renderRow.bind(this)}
           />
          : <Text style={styles.welcome}>It's lonely here, create an order</Text>
         }
@@ -93,7 +91,8 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   title: {
-    fontSize: 20,
+    fontSize: 24,
+    fontWeight: 'bold',
     textAlign: 'center',
     margin: 10,
   },
