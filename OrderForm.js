@@ -41,3 +41,6 @@ const styles = StyleSheet.create({
   },
 })
 
+OrderForm.propTypes = {
+  onAdd: React.PropTypes.func.isRequired,
+}
