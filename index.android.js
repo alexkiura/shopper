@@ -11,22 +11,13 @@ export default class Shopper extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      items: [
-        {
-          description: 'Spinach'
-        }, {
-          description: 'Strawberries'
-        }, {
-          description: 'Rice'
-        }
-      ]
+      items: []
     }
   }
 
   onSubmitItem(item) {
-    this.state.items.push({
-      description: item
-    })
+    console.log(item)
+    this.state.items.push(item)
     this.setState({
       items: this.state.items
     });
@@ -36,7 +27,10 @@ export default class Shopper extends Component {
   renderScene(route, nav) {
     switch (route.name) {
       case 'orderForm':
-        return (<OrderForm onAdd={this.onSubmitItem.bind(this)} />);
+        return (
+          <OrderForm
+            onAdd={this.onSubmitItem.bind(this)} 
+          />);
       default:
         return (
           <View style={styles.container}>

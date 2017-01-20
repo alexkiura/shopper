@@ -11,6 +11,8 @@ export default class OrderRow extends Component {
     return (
       <View style={styles.row}>
         <Text style={styles.orderText}>{this.props.order.description}</Text>
+        <Text>{this.props.order.quantity}</Text>
+        <Text>{this.props.order.unitOfMeasure}</Text>
       </View>
     );
   }
@@ -38,5 +40,7 @@ const styles = StyleSheet.create({
 OrderRow.propTypes = {
   order: React.PropTypes.shape({
     description: React.PropTypes.string.isRequired,
+    quantity: React.PropTypes.number.isRequired,
+    unitOfMeasure: React.PropTypes.string.isRequired
   }),
 };

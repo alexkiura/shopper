@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  Picker,
   StyleSheet,
   Text,
   TextInput,
@@ -13,26 +14,62 @@ export default class OrderForm extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      item: '',
+      description: '',
+      quantity: '',
+      unitOfMeasure: '',
     }
   }
 
-  onOrderTextChanged(text) {
+  onOrderTextChanged(description) {
     this.setState({
-      item: text
+      description
+    })
+  }
+
+  onOrderQuantityChanged(quantity) {
+    this.setState({
+      quantity
+    })
+  }
+
+  onOrderUnitChanged(unitOfMeasure) {
+    console.log('measure', unitOfMeasure);
+    this.setState({
+      unitOfMeasure
     })
   }
 
   submitItem() {
-    this.props.onAdd(this.state.item);
+    this.props.onAdd(this.state);
   }
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <TextInput
           onChangeText={this.onOrderTextChanged.bind(this)}
+          placeholder={"Name of item"}
+          style={styles.orderInput}
         />
+        <TextInput
+          onChangeText={this.onOrderQuantityChanged.bind(this)}
+          placeholder={"Quantity in digits"}
+          style={styles.orderInput}
+        />
+        <Picker
+          onValueChange={this.onOrderUnitChanged.bind(this)}
+          selectedValue={this.state.unitOfMeasure}
+          style={styles.unitPicker}
+        >
+          <Picker.item
+            label="Kg"
+            value="kg" 
+          />
+          <Picker.item 
+            label="Litre"
+            value="Ltr" 
+          />
+        </Picker>
         <TouchableHighlight
           onPress={this.submitItem.bind(this)}
           style={styles.button}
@@ -61,8 +98,18 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   orderInput: {
-    height: 40,
+    margin: 20,
     borderColor: 'gray',
+    borderWidth: 2,
+  },
+  unitPicker: {
+    justifyContent:'center',
+    alignItems: 'center',
+  },
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-start'
   }
 })
 
