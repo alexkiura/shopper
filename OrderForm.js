@@ -16,7 +16,7 @@ export default class OrderForm extends Component {
     this.state = {
       description: '',
       quantity: '',
-      unitOfMeasure: '',
+      unitOfMeasure: 'Kg',
     }
   }
 
@@ -62,12 +62,20 @@ export default class OrderForm extends Component {
           style={styles.unitPicker}
         >
           <Picker.item
-            label="Kg"
+            label="Kilograms"
             value="kg" 
+          />
+          <Picker.item
+            label="Grams"
+            value="Gms" 
           />
           <Picker.item 
             label="Litre"
             value="Ltr" 
+          />
+          <Picker.item 
+            label="Pieces"
+            value="Pcs" 
           />
         </Picker>
         <TouchableHighlight

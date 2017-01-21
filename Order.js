@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
 OrderRow.propTypes = {
   order: React.PropTypes.shape({
     description: React.PropTypes.string.isRequired,
-    quantity: React.PropTypes.number.isRequired,
+    quantity: React.PropTypes.string.isRequired,
     unitOfMeasure: React.PropTypes.string.isRequired
   }),
 };

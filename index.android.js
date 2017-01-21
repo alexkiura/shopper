@@ -29,7 +29,7 @@ export default class Shopper extends Component {
       case 'orderForm':
         return (
           <OrderForm
-            onAdd={this.onSubmitItem.bind(this)} 
+            onAdd={this.onSubmitItem.bind(this)}
           />);
       default:
         return (
