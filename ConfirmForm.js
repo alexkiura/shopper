@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  Picker,
   StyleSheet,
   Text,
   TextInput,
@@ -14,8 +13,8 @@ export default class ConfirmationForm extends Component {
             <View>
                 <Text>Are you sure you want to make your order?</Text>
                 <TextInput
-                    placeholder="Enter phone number"
-                    style={styles.orderInput}
+                  placeholder="Enter phone number"
+                  style={styles.orderInput}
                 />
                 <TouchableHighlight>
                     <Text>Order</Text>
