@@ -4,6 +4,7 @@ import OrderList from './OrderList';
 import OrderForm from './OrderForm.js';
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/Ionicons';
+import SplashScreen from 'react-native-splash-screen';
 
 
 export default class Shopper extends Component {
@@ -14,6 +15,11 @@ export default class Shopper extends Component {
       items: []
     }
   }
+   componentDidMount() {
+     setTimeout(() => {
+      SplashScreen.hide();
+     }, 1600);
+   }
 
   onSubmitItem(item) {
     console.log(item)
