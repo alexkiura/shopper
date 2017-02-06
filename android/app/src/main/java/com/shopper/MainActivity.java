@@ -2,6 +2,7 @@ package com.shopper;
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;
+import com.auth0.lock.react.LockReactPackage;
 import com.cboy.rn.splashscreen.SplashScreen;
 
 public class MainActivity extends ReactActivity {
