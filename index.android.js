@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {AppRegistry, Navigator, StyleSheet, View} from 'react-native';
 import OrderList from './OrderList';
 import OrderForm from './OrderForm.js';
+import Login from './Login.js';
+import Home from './Home.js';
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/Ionicons';
 import SplashScreen from 'react-native-splash-screen';
@@ -37,7 +39,7 @@ export default class Shopper extends Component {
           <OrderForm
             onAdd={this.onSubmitItem.bind(this)}
           />);
-      default:
+      case 'orderList':
         return (
           <View style={styles.container}>
             <OrderList
@@ -65,6 +67,14 @@ export default class Shopper extends Component {
         </ActionButton>
           </View>
         )
+       case 'home':
+        return(
+          <Home />
+        );
+      default:
+        return (
+          <Login />
+        )
     }
   }
 
@@ -82,7 +92,7 @@ export default class Shopper extends Component {
     return (
       <Navigator
         configureScene={this.configureScene}
-        initialRoute={{name: 'orderList', index: 0}}
+        initialRoute={{name: 'login', index: 0}}
         ref={(nav) => {
           this.nav = nav;
         }}
