@@ -19,6 +19,10 @@ export default class Login extends Component {
                   placeholder="Last name"
                   style={styles.nameInput}
                 />
+                <TextInput
+                  placeholder="Email"
+                  style={styles.nameInput}
+                />
                 <TouchableHighlight style={styles.button}>
                     <Text style={styles.buttonText}>Join</Text>
                 </TouchableHighlight>
