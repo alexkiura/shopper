@@ -6,27 +6,24 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
+import Auth0Lock from 'react-native-lock';
+
+const lock = new Auth0Lock(
+  {clientId: 'u7wmEreNsNdbAg54wYJ6q3kYFPiOIjMm', domain: 'alexkiura.auth0.com'});
 
 export default class Login extends Component {
+  
     render() {
+      lock.show({}, (err, profile, token) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        // Authentication worked!
+        console.log('Logged in with Auth0!');
+});
         return (
-            <View style={styles.container}>
-                <TextInput
-                  placeholder="First name"
-                  style={styles.nameInput}
-                />
-                <TextInput
-                  placeholder="Last name"
-                  style={styles.nameInput}
-                />
-                <TextInput
-                  placeholder="Email"
-                  style={styles.nameInput}
-                />
-                <TouchableHighlight style={styles.button}>
-                    <Text style={styles.buttonText}>Join</Text>
-                </TouchableHighlight>
-            </View>
+            <View style={styles.container} />
         );
     }
 }
